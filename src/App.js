@@ -30,18 +30,14 @@ export default function Home() {
       length: 2/6
     }
   ])
-  const [active, setActive] = useState(1)
+  const [status, setStatus] = useState(0)
 
-  const drawNext = (settings) => {
-    if (active){
-      setActive(0)
+  const drawNext = async (settings) => {
       const t1 = performance.now()
-      const resp = draw.current.update(settings)
+      const resp = await draw.current.update(settings)
       const t2 = performance.now()
-      console.log(resp)
+      console.log("response is", resp)
       setComputing(t2-t1)
-    }
-    setActive(1)
   }
 
   const fullScreen = () => {
@@ -95,13 +91,13 @@ export default function Home() {
 
   useEffect(() => {
     const canvas = canvasRef.current
-    canvasRef.current.width = 2000;
-    canvasRef.current.height = 2000;
+    canvasRef.current.width = 8000;
+    canvasRef.current.height = 8000;
     const ctx = canvasRef.current.getContext('2d');
     ctx.translate(canvas.width/2, canvas.height/2)
     ctx.strokeStyle = "rgba(240, 240, 240, 0.1)";
     ctx.lineWidth = 10;
-    draw.current = new Drawing(ctx, 400);
+    draw.current = new Drawing(ctx, 1600, setStatus);
     draw.current.update(settings)
 
   }, [])
@@ -114,7 +110,7 @@ export default function Home() {
     
     
     <div id="settings">
-      {active} <br />
+      {String(status)} <br />
       {computing}
       {settings.map((setting, index) => {
         return(

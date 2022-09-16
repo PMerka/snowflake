@@ -71,6 +71,13 @@ export class Branch{
 
 }
 
+//for async
+function nextFrame() {
+    return new Promise((res) => {
+         requestAnimationFrame(() => res())
+    });
+}
+
 function callLevel(previousBranches, settings){
     let newBrancheches = []
     previousBranches.forEach(branch => {
@@ -81,11 +88,13 @@ function callLevel(previousBranches, settings){
 }
 
 export class Drawing{
-    constructor(ctx, length=200){
+    constructor(ctx, length=200, setStatus){
         this.ctx = ctx
         this.length = length
         this.arrayOfBranches = []
         this.maxArraySize = 300000
+        this.running = false
+        this.setStatus = setStatus
     }
 
     update(settings){
@@ -99,21 +108,33 @@ export class Drawing{
             this.arrayOfBranches = [new Branch([0, 0], [this.length, 0], this.ctx)]
         }
         console.log("Length", this.arrayOfBranches.length)
-        return (this.arrayOfBranches.length)
     }
 
-    nextIteration(settings){
+    async nextIteration(settings){
+        let count = 0;
+        if(this.running){
+            console.log("Alredy running")
+            return "working"
+        }
+        this.running = true
+        this.setStatus("runing")
+        /*
+        //set max call
         const newLength = settings.length * 2 * this.arrayOfBranches.length
         if (newLength > this.maxArraySize){
             console.log("Too complex")
             return "Too complex"
         }
+        */
         this.depth += 1
         let newBrancheches = [] 
         if (this.ctx.lineWidth > 2){
             this.ctx.lineWidth = this.ctx.lineWidth*2/3
         } 
         for(let i = 0; i < this.arrayOfBranches.length; i++){
+            if (++count % 400 === 0){
+                await nextFrame()
+           }
             const newBranch = this.arrayOfBranches[i].getNewBranches(settings)
             newBrancheches.push(...newBranch)
         }
@@ -125,5 +146,7 @@ export class Drawing{
         */
         this.arrayOfBranches = newBrancheches
         console.log("array", this.arrayOfBranches.length)
+        this.running = false
+        this.setStatus("done")
     }
 }
