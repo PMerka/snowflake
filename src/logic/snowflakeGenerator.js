@@ -49,7 +49,7 @@ export class Branch{
     }
 
     getNewBranch(setting){
-        const [rotateByAngleP, rotateByAngleN, r, l] = [setting.rotationP, setting.rotationN, setting.distance, setting.length]
+        const [rotateByAngleP, rotateByAngleN, r, l] = [setting.rotationP, setting.rotationN, setting.distance/100, setting.length/100]
         const newStar = [this.start[0] + r*this.vector[0] , this.start[1] + r*this.vector[1]]
         let newVector1 = rotateByAngleP.rotate(this.vector)
         newVector1 = [l*newVector1[0], l*newVector1[1]]

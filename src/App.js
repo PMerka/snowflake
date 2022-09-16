@@ -1,93 +1,46 @@
 import React, { useEffect, useRef, useState } from "react"
 import './App.css'
 import Canvas from "./components/Canvas"
+import useSettings from "./useSettings"
 import {Drawing, Rotation} from "./logic/snowflakeGenerator"
 
-export default function Home() {
-  const canvasRef = useRef(null);
-  const draw = useRef(true); 
-  const [computing, setComputing] = useState(0)
-  const [settings, setSetting] = useState([
+const defaultSettings = [
     {
       angle: 360 / 6,
       rotationP: new Rotation(Math.PI * 2 / 6),
       rotationN: new Rotation(-Math.PI * 2 / 6),
-      distance: 1/6,
-      length: 4/6
+      distance: 12,
+      length: 66
     },
     {
       angle: 360 / 20,
       rotationP: new Rotation(Math.PI * 2 / 20),
       rotationN: new Rotation(-Math.PI * 2 / 20),
-      distance: 6/6,
-      length: 1/5
+      distance: 100,
+      length: 20
     },
     {
       angle: 360 / 20,
       rotationP: new Rotation(Math.PI * 2 / 25),
       rotationN: new Rotation(-Math.PI * 2 / 25),
-      distance: 4/6,
-      length: 2/6
+      distance: 66,
+      length: 33
     }
-  ])
+  ]
+
+export default function Home() {
+  const canvasRef = useRef(null);
+  const draw = useRef(true); 
+  const [settings, uppdateSetting, addSetting, removeSetting] = useSettings(defaultSettings)
   const [status, setStatus] = useState(0)
 
   const drawNext = async (settings) => {
-      const t1 = performance.now()
       const resp = await draw.current.update(settings)
-      const t2 = performance.now()
-      console.log("response is", resp)
-      setComputing(t2-t1)
   }
 
   const fullScreen = () => {
- 
     canvasRef.current.requestFullscreen();
   };
-  
-  //index, newAngle, newDistance, newLength
-  const uppdateSetting = (index, property, value) => {  
-    if(! (property in settings[index])){
-      console.error("Given property is not key of object.")
-      return;
-    }
-    let newSettings = settings.map(setting => {
-      return {...setting}
-    })
-    console.log(newSettings, index, newSettings[index])
-    
-    if(property === "angle"){
-      newSettings[index].rotationP = new Rotation(Math.PI * 2 * value/360)
-      newSettings[index].rotationN = new Rotation(-Math.PI * 2 * value/360)
-    }
-    newSettings[index][property] = value
-    console.log(newSettings)
-    setSetting(newSettings)
-  }
-
-  const addSetting = () => {
-    const defaultSetting = {
-      angle: 360 / 6,
-      rotationP: new Rotation(Math.PI * 2 / 6),
-      rotationN: new Rotation(-Math.PI * 2 / 6),
-      distance: 1/6,
-      length: 4/6
-    }
-    let newSettings = settings.map(setting => {
-      return {...setting}
-    })
-    newSettings.push(defaultSetting)
-    console.log(newSettings)
-    setSetting(newSettings)
-  }
-
-  const removeSetting = (index) => {
-    let newSettings = settings.map(setting => {
-      return {...setting}
-    })
-    newSettings.splice(index, 1)
-    setSetting(newSettings)
-  }
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -99,8 +52,8 @@ export default function Home() {
     ctx.lineWidth = 10;
     draw.current = new Drawing(ctx, 1600, setStatus);
     draw.current.update(settings)
-
   }, [])
+
   return (
   <div  className="main">
     <div onClick={() => drawNext(settings)}>
@@ -111,13 +64,18 @@ export default function Home() {
     
     <div id="settings">
       {String(status)} <br />
-      {computing}
       {settings.map((setting, index) => {
         return(
           <div >
             {index}
-            <input value={setting.length} step={0.01} type="range" min={0} max={1} onChange={(e) => uppdateSetting(index, "length", e.target.value)} />
-            <input value={setting.distance} step={0.01} type="range" min={0} max={1} onChange={(e) => uppdateSetting(index, "distance", e.target.value)} />
+            <label>Length</label>
+            <input value={setting.length} step={1} type="range" min={0} max={100} onChange={(e) => uppdateSetting(index, "length", e.target.value)} />
+            <input type="number" value={setting.length} step={1} min={0} max={100} onChange={(e) => uppdateSetting(index, "length", e.target.value)}/>
+            
+            <label>Distance</label>
+            <input value={setting.distance} step={1} type="range" min={0} max={100} onChange={(e) => uppdateSetting(index, "distance", e.target.value)}/>
+            <input type="number" value={setting.distance} step={1} min={0} max={100} onChange={(e) => uppdateSetting(index, "distance", e.target.value)}/>
+
             <input value={setting.angle} type="range" min={1} max={179} onChange={(e) => uppdateSetting(index, "angle", e.target.value)} />
             <button onClick={() => removeSetting(index)}>-</button>
           </div>) 
