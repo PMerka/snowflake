@@ -27,15 +27,14 @@ export class Branch{
     }
 
     draw(rotation){
+        //draw the branch rotated by "rotation" matrix
         let start = this.start
         let vector = this.vector
-        const ratio = 30
-        const left = [-this.vector[0]/ratio, this.vector[1]/ratio]
-        const right = [this.vector[0]/ratio, -this.vector[1]/ratio]
         if (rotation !== 0){
             start = rotation.rotate(this.start)
             vector = rotation.rotate(this.vector)
         }
+    
         this.ctx.beginPath();
         this.ctx.moveTo(start[0], start[1]);
         this.ctx.lineTo(start[0] + vector[0] , start[1] + vector[1] )
@@ -78,15 +77,6 @@ function nextFrame() {
     });
 }
 
-function callLevel(previousBranches, settings){
-    let newBrancheches = []
-    previousBranches.forEach(branch => {
-        const newBranch = branch.getNewBranches(settings)
-        newBrancheches.push(...newBranch)
-    });
-    return newBrancheches
-}
-
 export class Drawing{
     constructor(ctx, length=200, setStatus){
         this.ctx = ctx
@@ -95,19 +85,18 @@ export class Drawing{
         this.maxArraySize = 300000
         this.running = false
         this.setStatus = setStatus
+        this.iterationsPerFrame = 200
     }
 
     update(settings){
         
         if (this.arrayOfBranches.length > 0){
-            console.log(1)
             this.nextIteration(settings)
         }
         else{
-            console.log(0)
+            //initialization
             this.arrayOfBranches = [new Branch([0, 0], [this.length, 0], this.ctx)]
         }
-        console.log("Length", this.arrayOfBranches.length)
     }
 
     async nextIteration(settings){
@@ -117,36 +106,23 @@ export class Drawing{
             return "working"
         }
         this.running = true
-        this.setStatus("runing")
-        /*
-        //set max call
-        const newLength = settings.length * 2 * this.arrayOfBranches.length
-        if (newLength > this.maxArraySize){
-            console.log("Too complex")
-            return "Too complex"
-        }
-        */
+        this.setStatus(true)
         this.depth += 1
         let newBrancheches = [] 
         if (this.ctx.lineWidth > 2){
             this.ctx.lineWidth = this.ctx.lineWidth*2/3
         } 
         for(let i = 0; i < this.arrayOfBranches.length; i++){
-            if (++count % 400 === 0){
+            // allows to update ui after some iterations and prevent of blocking the thread
+            if (++count % this.iterationsPerFrame === 0){
                 await nextFrame()
-           }
+            }
             const newBranch = this.arrayOfBranches[i].getNewBranches(settings)
             newBrancheches.push(...newBranch)
         }
-        /*
-        this.arrayOfBranches.forEach(branch => {
-            const newBranch = branch.getNewBranches(settings)
-            newBrancheches.push(...newBranch)
-        });
-        */
         this.arrayOfBranches = newBrancheches
         console.log("array", this.arrayOfBranches.length)
         this.running = false
-        this.setStatus("done")
+        this.setStatus(false)
     }
 }

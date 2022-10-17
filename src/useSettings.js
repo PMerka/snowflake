@@ -17,6 +17,7 @@ export default function useSettings(defaultSettings){
         if(property === "angle"){
           newSettings[index].rotationP = new Rotation(Math.PI * 2 * value/360)
           newSettings[index].rotationN = new Rotation(-Math.PI * 2 * value/360)
+          newSettings[index].angle = value
         }
         else{
             if (value<0){
@@ -26,7 +27,6 @@ export default function useSettings(defaultSettings){
             if (value>100){
                 newSettings[index][property] = 100
                 return
-                console.log("BIG")
             }
             newSettings[index][property] = value
         }
@@ -36,12 +36,15 @@ export default function useSettings(defaultSettings){
       }
     
       const addSetting = () => {
+        let angle = 180 * Math.random()
+        let distance = 100 * Math.random()
+        let length = 100 * Math.random()
         const defaultSetting = {
-          angle: 360 / 6,
-          rotationP: new Rotation(Math.PI * 2 / 6),
-          rotationN: new Rotation(-Math.PI * 2 / 6),
-          distance: 1/6,
-          length: 4/6
+          angle: angle,
+          rotationP: new Rotation(angle),
+          rotationN: new Rotation(-angle),
+          distance: distance,
+          length: length
         }
         let newSettings = settings.map(setting => {
           return {...setting}
