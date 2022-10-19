@@ -114,6 +114,7 @@ export default function Constrols({
       })}
       </div>
       
+      
       <button id="add-btn" onClick={() => addSetting()}>
         <img style={{width: 20}} src={Add} alt=""/>
       </button>

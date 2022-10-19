@@ -8,24 +8,21 @@ body, html {
 }
 
 .main{
-  height: 85vh;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 #settings{
   background-color: rgb(10, 52, 90);
   height: 80vmin;
   width: 100%;
-  flex-basis: 620px;
+  max-width: 620px;
+  min-height: 400px;
   position: relative;
-  /*border: solid;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: solid;*/
 }
 
 #description{
@@ -52,8 +49,14 @@ button:hover{
 
 .controlElements{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 30px;
+}
+
+@media (min-width: 620px){
+  .controlElements{
+    flex-direction: row;
+  }
 }
 
 .controlElement{
@@ -149,8 +152,6 @@ h5{
   text-align: center;
 }
 
-
-
 #main-canvas{
   margin: 0;
   width: 80vmin;
@@ -158,8 +159,21 @@ h5{
   background-color: rgb(10, 52, 106);
 }
 
+:fullscreen #main-canvas{
+  width: 100vmin;
+}
+
 .canvas-relative{
   position: relative;
+  align-items: center;
+  background-color: rgb(10, 52, 106);
+}
+
+#download{
+  width: 40px;
+  position: absolute;
+  right: 120px;
+  bottom: 15px;
 }
 
 #fullscrean{
@@ -193,8 +207,8 @@ input[type=number] {
 }
 
 ::-webkit-scrollbar {
-  width: 0.5vw;
-  height: 0.5vw;
+  width: 10px;
+  height: 10px
 }
 
 ::-webkit-scrollbar-track {
