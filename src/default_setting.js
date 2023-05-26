@@ -1,4 +1,4 @@
-import { Rotation } from "./logic/snowflakeGenerator";
+import Rotation from "./logic/rotation";
 
 export const defaultSettings = [
     {

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Rotation } from "./logic/snowflakeGenerator";
+import Rotation from "./logic/rotation";
+
 
 export default function useSettings(defaultSettings) {
   const [settings, setSetting] = useState(defaultSettings);

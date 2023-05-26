@@ -26,7 +26,7 @@ export default function Home() {
     ctx.translate(canvas.width / 2, canvas.height / 2);
     ctx.strokeStyle = "rgba(240, 240, 240, 0.1)";
     ctx.lineWidth = 20;
-    draw.current = new Drawing(ctx, 1600, setStatus);
+    draw.current = new Drawing(ctx, 2000, setStatus);
   }, []);
 
   return (
