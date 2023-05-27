@@ -6,7 +6,8 @@ export default function useSettings(defaultSettings) {
   const [settings, setSetting] = useState(defaultSettings);
 
   const uppdateSetting = (index, property, value) => {
-    if (!(property in settings[index])) {
+    const propertyClean = property.toLowerCase()
+    if (!(propertyClean in settings[index])) {
       console.error("Given property does not exist.");
       return;
     }
@@ -17,20 +18,20 @@ export default function useSettings(defaultSettings) {
 
     console.log(newSettings, index, newSettings[index]);
 
-    if (property === "angle") {
+    if (propertyClean === "angle") {
       newSettings[index].rotationP = new Rotation((Math.PI * 2 * value) / 360);
       newSettings[index].rotationN = new Rotation((-Math.PI * 2 * value) / 360);
       newSettings[index].angle = value;
     } else {
       if (value < 0) {
-        newSettings[index][property] = 0;
+        newSettings[index][propertyClean] = 0;
         return;
       }
       if (value > 100) {
-        newSettings[index][property] = 100;
+        newSettings[index][propertyClean] = 100;
         return;
       }
-      newSettings[index][property] = value;
+      newSettings[index][propertyClean] = value;
     }
 
     console.log(newSettings);

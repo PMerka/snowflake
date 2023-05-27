@@ -1,5 +1,9 @@
 import Rotation from "./logic/rotation";
 
+/**
+ * distance = distance where is the branch splitting (in %)
+ * length = length of the new branch (in %)
+ */
 export const defaultSettings = [
     {
       angle: 360 / 6,

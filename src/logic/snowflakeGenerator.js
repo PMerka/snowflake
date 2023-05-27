@@ -35,13 +35,12 @@ export class Drawing{
         }
         this.running = true
         this.setStatus(true)
-        this.depth += 1
         let newBrancheches = [] 
         if (this.ctx.lineWidth > 2){
             this.ctx.lineWidth = this.ctx.lineWidth*2/3
         } 
         for(let i = 0; i < this.arrayOfBranches.length; i++){
-            // allows to update ui after some iterations and prevent of blocking the thread
+            // allows to update UI after some iterations
             if (i % this.iterationsPerFrame === 0){
                 await nextFrame()
             }

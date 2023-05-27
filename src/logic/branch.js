@@ -4,17 +4,24 @@ export const rotateBy60 = new Rotation(Math.PI * 2 / 6)
 export const rotateByM60 = new Rotation(-Math.PI * 2 / 6)
 
 export default class Branch{
+    /**
+     * 
+     * @param {[Number, Number]} start (position where to start)
+     * @param {[Number, Number]} vector (vector representing the line)
+     * @param {CanvasRenderingContext2D} ctx CanvasRenderingContext2D
+     */
     constructor(start, vector, ctx){
         this.start = start
         this.vector = vector
-        this.ctx = ctx       
+        this.ctx = ctx 
+        // draw all branches 3 
         this.draw(0)
         this.draw(rotateBy60)
         this.draw(rotateByM60)
     }
 
     draw(rotation){
-        //draw the branch rotated by "rotation" matrix
+        //draw the branch rotated by "rotation" matrix and mirror image of this branch
         let start = this.start
         let vector = this.vector
         if (rotation !== 0){
