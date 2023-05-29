@@ -1,4 +1,6 @@
-# Fractal snowflake
+# [Fractal snowflake](https://pmerka.github.io/snowflake/)
+
+[![preview](main_img.PNG)](https://pmerka.github.io/snowflake/)
 
 The Fractal Snowflake Generator is a web application that allows you to create beautiful and intricate snowflake patterns using the power of fractal geometry. With this application, you can generate mesmerizing snowflake designs and explore the fascinating world of fractals.
 
