@@ -48,7 +48,6 @@ export class Drawing{
             newBrancheches.push(...newBranch)
         }
         this.arrayOfBranches = newBrancheches
-        console.log("array", this.arrayOfBranches.length)
         this.running = false
         this.setStatus(false)
     }

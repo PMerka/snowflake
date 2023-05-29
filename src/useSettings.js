@@ -16,8 +16,6 @@ export default function useSettings(defaultSettings) {
       return { ...setting };
     });
 
-    console.log(newSettings, index, newSettings[index]);
-
     if (propertyClean === "angle") {
       newSettings[index].rotationP = new Rotation((Math.PI * 2 * value) / 360);
       newSettings[index].rotationN = new Rotation((-Math.PI * 2 * value) / 360);
@@ -34,7 +32,6 @@ export default function useSettings(defaultSettings) {
       newSettings[index][propertyClean] = value;
     }
 
-    console.log(newSettings);
     setSetting(newSettings);
   };
 
@@ -53,7 +50,6 @@ export default function useSettings(defaultSettings) {
       return { ...setting };
     });
     newSettings.push(defaultSetting);
-    console.log(newSettings);
     setSetting(newSettings);
   };
 
