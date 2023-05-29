@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/snowflake/static/css/main.0673f051.css",
-    "main.js": "/snowflake/static/js/main.c0f48041.js",
+    "main.js": "/snowflake/static/js/main.eef9236d.js",
     "static/js/787.685a0358.chunk.js": "/snowflake/static/js/787.685a0358.chunk.js",
     "index.html": "/snowflake/index.html",
     "static/media/download.svg": "/snowflake/static/media/download.b8e7f66541e668595a40b7ec3156c7d5.svg",
@@ -10,11 +10,11 @@
     "static/media/fullscrean.svg": "/snowflake/static/media/fullscrean.cf6f7abd35e9b42f321ded1a665943d8.svg",
     "static/media/play.svg": "/snowflake/static/media/play.ca3439924fe041d86fcce972ca9cc8ba.svg",
     "main.0673f051.css.map": "/snowflake/static/css/main.0673f051.css.map",
-    "main.c0f48041.js.map": "/snowflake/static/js/main.c0f48041.js.map",
+    "main.eef9236d.js.map": "/snowflake/static/js/main.eef9236d.js.map",
     "787.685a0358.chunk.js.map": "/snowflake/static/js/787.685a0358.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0673f051.css",
-    "static/js/main.c0f48041.js"
+    "static/js/main.eef9236d.js"
   ]
 }
