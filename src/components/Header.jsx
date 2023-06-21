@@ -1,18 +1,18 @@
-import PlayImg from "./play.svg";
+import PlayImg from "assets/play.svg";
 
 function Header() {
   return (
-    <nav>
+    <header>
       <h1>Fractal snowflakes</h1>
       <div id="description">
         <p>
-          {" "}
-          Click to the <img style={{ width: 12 }} src={PlayImg} alt="" /> button
-          several times and generate snowflake.{" "}
+          This small web app can draw custom fractal snowflakes.
+
+          Click to the <img style={{ width: 12 }} src={PlayImg} alt="play" /> button
+          several times and generate snowflake. Change the settings and create a unique snowflake. 
         </p>
-        <p>Change the settings and create a unique snowflake. </p>
       </div>
-    </nav>
+    </header>
   );
 }
 

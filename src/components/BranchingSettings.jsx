@@ -1,5 +1,5 @@
 import React from "react";
-import CloseImg from "./close.svg"
+import CloseImg from "assets/close.svg"
 import ControlElement from "./ControlElement";
 
 export default function BranchingSettings({index, setting, uppdateSetting, removeSetting}) {

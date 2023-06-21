@@ -33,7 +33,7 @@ export default function Home() {
     <div>
       <Header/>
 
-      <div className="main">
+      <main className="main">
         <Canvas 
           canvasRef={canvasRef} 
           status={status} 
@@ -47,7 +47,8 @@ export default function Home() {
           addSetting={addSetting}
           removeSetting={removeSetting}
         />
-      </div>
+        
+      </main>
     </div>
   );
 }

@@ -1,6 +1,6 @@
-import PlayImg from "./play.svg";
-import Full from "./fullscrean.svg";
-import Download from "./download.svg"
+import PlayImg from "assets/play.svg";
+import Full from "assets/fullscrean.svg";
+import Download from "assets/download.svg"
 import React from 'react'
 import { useRef } from "react";
 import { useState } from "react";

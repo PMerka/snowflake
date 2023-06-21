@@ -1,5 +1,5 @@
 import React from "react";
-import Add from "./add.svg";
+import Add from "assets/add.svg";
 import BranchingSettings from "./BranchingSettings";
 
 export default function Controls({
