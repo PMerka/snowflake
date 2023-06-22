@@ -18,7 +18,3 @@
 :fullscreen .mainCanvas{
     width: 100dvmin;
 }
-
-:fullscreen .canvasWrapper{
-    height: 100dvh;
-}

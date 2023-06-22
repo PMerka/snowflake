@@ -4,7 +4,7 @@ body, html {
   margin: 0;
   box-sizing: border-box;
   --main-bg-color: rgb(24, 26, 51);
-  --box-color: rgba(0, 0, 0, 0.3);
+  --box-color: rgba(0, 0, 0, 0.2);
   --canvas-size: 80vmin;
   background-color: var(--main-bg-color);
   color: white;
@@ -18,24 +18,20 @@ body, html {
 
 .main{
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   padding: 1em;
   gap: 20px;
-  flex-direction: column;
+  flex-direction: row;
 }
-
+/*
 @media (min-width: calc( 80vmin + 700px) ){
   .main{
     flex-direction: row;
   }
 }
-
-#description{
- width: 80vmin;
- margin: auto;
-}
-
+*/
 button{
   background-color: rgba(251, 251, 252, 0.1);
   border-radius: 20px;

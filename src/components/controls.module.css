@@ -17,6 +17,6 @@
 
 @media (min-width: calc( 80vmin + 700px) ){
     .mainControls{
-        max-width: 620px;
+        max-width: 600px;
     }
-  }
+}

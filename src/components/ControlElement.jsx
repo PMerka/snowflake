@@ -13,6 +13,7 @@ export default function ControlElement({index, min, max, symbol, label, setting,
           step={1}
           min={min}
           max={max}
+          onFocus={(e) => e.target.select()}
           onChange={(e) => uppdateSetting(index, label, e.target.value)}
         />
         {symbol}
