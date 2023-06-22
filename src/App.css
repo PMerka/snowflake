@@ -4,37 +4,30 @@ body, html {
   margin: 0;
   box-sizing: border-box;
   --main-bg-color: rgb(24, 26, 51);
+  --box-color: rgba(0, 0, 0, 0.3);
+  --canvas-size: 80vmin;
   background-color: var(--main-bg-color);
   color: white;
+}
+
+.mainApp{
+  max-width: 1600px;
+  min-width: 320px;
+  margin: auto;
 }
 
 .main{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
-  flex-wrap: wrap;
+  padding: 1em;
   gap: 20px;
   flex-direction: column;
 }
 
-@media (min-width: 620px) {
+@media (min-width: calc( 80vmin + 700px) ){
   .main{
     flex-direction: row;
-  }
-}
-
-#settings{
-  
-  width: 100%;
-  max-width: 620px;
-  min-height: 400px;
-  position: relative;
-}
-
-@media (min-width: 620px) {
-  #settings{
-    height: 80vmin;
   }
 }
 
@@ -60,49 +53,17 @@ button:hover{
   background-color: rgba(251, 251, 252, 0.2);
 }
 
-.controlElements{
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-@media (min-width: 620px){
-  .controlElements{
-    flex-direction: row;
-  }
-}
-
 .controlElement{
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
+  flex: 1;
 }
 
 #add-btn{
   position: absolute;
   right: 15px;
   bottom: 10px;
-}
-
-.loader {
-  box-sizing: border-box;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  border: 5px solid #f3f3f33c; /* Light grey */
-  border-top: 5px solid rgba(255, 255, 255, 0.547); /* Blue */
-  box-shadow: 0px 0px 10px #dadada7d;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1.5s linear infinite;
-  background-color: #dadada17;
-}
-/*rgba(255, 255, 255, 0.20);*/
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
 
 .num-setting-input{
@@ -128,9 +89,7 @@ button:hover{
 }
 
 .option-box-wrapper{
-  
   overflow-y: auto;
-  
   color: rgba(255, 255, 255, 0.5);
   margin: 1em auto 50px;
 }
@@ -161,31 +120,13 @@ h1{
   text-align: center;
 }
 
-h3{
-  margin: 0px 0px 15px 0px;
-  text-align: center;
-}
-
-h5{
-  margin: 0px 0px 15px 0px;
-  text-align: center;
-}
-
-#main-canvas{
-  margin: 0;
-  width: 80vmin;
-  aspect-ratio: 1;
-  background-color: rgba(10, 52, 106, 0.3);
-  box-shadow: 0px 0px 5px 10px rgba(10, 52, 106, 0.3);
-}
-
 :fullscreen #main-canvas{
   width: 100vmin;
 }
 
 .canvas-relative{
   position: relative;
-  align-items: center;
+
   background-color: var(--main-bg-color);
 }
 

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Canvas from "./components/Canvas";
 import useSettings from "./useSettings";
-import Constrols from "./components/Constrols";
+import Constrols from "./components/Controls";
 import { Drawing } from "./logic/snowflakeGenerator";
 import { defaultSettings } from "./default_setting";
 import Header from "./components/Header";
@@ -30,7 +30,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="mainApp">
       <Header/>
 
       <main className="main">

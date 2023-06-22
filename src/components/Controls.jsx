@@ -1,6 +1,7 @@
 import React from "react";
 import Add from "assets/add.svg";
 import BranchingSettings from "./BranchingSettings";
+import styles from './controls.module.css'
 
 export default function Controls({
   settings,
@@ -9,8 +10,8 @@ export default function Controls({
   removeSetting,
 }) {
   return (
-    <div id="settings">
-      <h3>Settings</h3>
+    <div className={styles.mainControls}>
+      <h3 className={styles.title}>Settings</h3>
       <div className="option-box-wrapper">
         {settings.map((setting, index) => (
           <BranchingSettings

@@ -1,10 +1,11 @@
 import PlayImg from "assets/play.svg";
+import styles from './header.module.css'
 
 function Header() {
   return (
     <header>
       <h1>Fractal snowflakes</h1>
-      <div id="description">
+      <div className={styles.introText}>
         <p>
           This small web app can draw custom fractal snowflakes.
 

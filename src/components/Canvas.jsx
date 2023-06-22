@@ -1,16 +1,16 @@
-import PlayImg from "assets/play.svg";
 import Full from "assets/fullscrean.svg";
 import Download from "assets/download.svg"
 import React from 'react'
 import { useRef } from "react";
 import { useState } from "react";
+import StartButton from "./widgets/StartButton";
+import styles from './canvas.module.css'
 
 export default function Canvas({canvasRef, status, drawNext, settings}) {
   const canvasElementRef = useRef(null)
   const [isFullscreen, setIsFullscreen]  = useState(false)
 
   const fullScreen = () => {
-    console.log(isFullscreen)
     if (!isFullscreen){
           canvasElementRef.current.requestFullscreen();
           setIsFullscreen(true)
@@ -28,11 +28,10 @@ export default function Canvas({canvasRef, status, drawNext, settings}) {
   }
   
   return (
-    <div ref={canvasElementRef} className="canvas-relative">
-        <div style={{widht: "100%", display: "flex", justifyContent: "center"}}>
-          <canvas ref={canvasRef} id="main-canvas">
-          </canvas>
-        </div>
+    <div ref={canvasElementRef} className={styles.canvasWrapper}>
+        
+        <canvas ref={canvasRef} className={styles.mainCanvas}> 
+        </canvas>
 
         <button id="download" onClick={() => download()}>
           <img style={{ width: 20 }} src={Download} alt="" />
@@ -42,13 +41,7 @@ export default function Canvas({canvasRef, status, drawNext, settings}) {
           <img style={{ width: 20 }} src={Full} alt="" />
         </button>
 
-        {!status ? (
-          <button id="start" onClick={() => drawNext(settings)}>
-            <img style={{ width: 20 }} src={PlayImg} alt="" />
-          </button>
-        ) : (
-          <div className="loader"></div>
-        )}
+        <StartButton status={status} drawNext={() => drawNext(settings)}/>
   </div>
 )
 }
