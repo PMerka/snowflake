@@ -12,7 +12,7 @@ export default function Controls({
   return (
     <div className={styles.mainControls}>
       <h3 className={styles.title}>Settings</h3>
-      <div className="option-box-wrapper">
+      <div className={styles.boxWrapper}>
         {settings.map((setting, index) => (
           <BranchingSettings
             key={index}

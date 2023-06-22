@@ -20,3 +20,16 @@
         max-width: 600px;
     }
 }
+
+.boxWrapper{
+    overflow-y: auto;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 1em auto 50px;
+}
+
+@media (min-width: 620px){
+    .boxWrapper{
+    max-height: 65vmin;
+    max-width: 600px;
+    }
+  }

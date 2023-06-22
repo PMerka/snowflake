@@ -1,13 +1,14 @@
 import React from "react";
+import styles from './controlElement.module.css'
 
 export default function ControlElement({index, min, max, symbol, label, setting, uppdateSetting}) {
   const settingKey = label.toLowerCase()
     return (
-    <div className="controlElement">
+    <div className={styles.controlElement}>
       <div>
         <label> {label} </label>
         <input
-          className="num-setting-input"
+          className={styles.numberInput}
           type="number"
           value={setting[settingKey]}
           step={1}

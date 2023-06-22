@@ -25,13 +25,7 @@ body, html {
   gap: 20px;
   flex-direction: row;
 }
-/*
-@media (min-width: calc( 80vmin + 700px) ){
-  .main{
-    flex-direction: row;
-  }
-}
-*/
+
 button{
   background-color: rgba(251, 251, 252, 0.1);
   border-radius: 20px;
@@ -49,61 +43,10 @@ button:hover{
   background-color: rgba(251, 251, 252, 0.2);
 }
 
-.controlElement{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-}
-
 #add-btn{
   position: absolute;
   right: 15px;
   bottom: 10px;
-}
-
-.num-setting-input{
-  background-color: transparent;
-  color: inherit;
-  font-size: inherit;
-  padding: 2px 2px;
-  outline: 0;
-  border: none;
-  width: 2rem;
-  text-align: end;
-}
-
-.option-header{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.num-setting-input {
-  outline: none;
-}
-
-.option-box-wrapper{
-  overflow-y: auto;
-  color: rgba(255, 255, 255, 0.5);
-  margin: 1em auto 50px;
-}
-
-@media (min-width: 620px){
-  .option-box-wrapper{
-  max-height: 65vmin;
-  max-width: 600px;
-  }
-}
-
-.option-box{
-  margin: 10px;
-  max-width: 600px;
-  border-radius: 10px;
-  padding: 15px;
-  background-color: rgba(10, 52, 106, 0.3);
-  position: relative;
 }
 
 .close-button{
@@ -114,16 +57,6 @@ button:hover{
 
 h1{
   text-align: center;
-}
-
-:fullscreen #main-canvas{
-  width: 100vmin;
-}
-
-.canvas-relative{
-  position: relative;
-
-  background-color: var(--main-bg-color);
 }
 
 #download{
