@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/snowflake/static/css/main.f5a1d798.css",
-    "main.js": "/snowflake/static/js/main.b181120d.js",
+    "main.css": "/snowflake/static/css/main.a1a92b82.css",
+    "main.js": "/snowflake/static/js/main.643590b8.js",
     "static/js/787.685a0358.chunk.js": "/snowflake/static/js/787.685a0358.chunk.js",
     "index.html": "/snowflake/index.html",
     "static/media/download.svg": "/snowflake/static/media/download.b8e7f66541e668595a40b7ec3156c7d5.svg",
@@ -9,12 +9,12 @@
     "static/media/add.svg": "/snowflake/static/media/add.1d3aec488d0c2d7cb49c540b8ec97b8e.svg",
     "static/media/fullscrean.svg": "/snowflake/static/media/fullscrean.cf6f7abd35e9b42f321ded1a665943d8.svg",
     "static/media/play.svg": "/snowflake/static/media/play.ca3439924fe041d86fcce972ca9cc8ba.svg",
-    "main.f5a1d798.css.map": "/snowflake/static/css/main.f5a1d798.css.map",
-    "main.b181120d.js.map": "/snowflake/static/js/main.b181120d.js.map",
+    "main.a1a92b82.css.map": "/snowflake/static/css/main.a1a92b82.css.map",
+    "main.643590b8.js.map": "/snowflake/static/js/main.643590b8.js.map",
     "787.685a0358.chunk.js.map": "/snowflake/static/js/787.685a0358.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f5a1d798.css",
-    "static/js/main.b181120d.js"
+    "static/css/main.a1a92b82.css",
+    "static/js/main.643590b8.js"
   ]
 }
